@@ -36,7 +36,7 @@ function render_pandp_blocks_post_carousel() {
     return '<p>No posts</p>';
   }
 
-	$markup = '<div class="wp-block-pandp-blocks-post-carousel">';
+	$markup = '<div class="wp-block-pandp-blocks-post-carousel"><div class="outer-container"><div class="inner-container"><div class="horizontal-container">';
 
   foreach( $recent_posts as $post ) {
 
@@ -45,7 +45,7 @@ function render_pandp_blocks_post_carousel() {
     $category = get_the_category( $post_id );
     $cat_slug = $category[0]->slug;
     $cat_name = $category[0]->name;
-    $cat_color = '';
+    $cat_color = get_field( 'color', 'category_' . $category[0]->term_id );
     $title = esc_html( get_the_title( $post_id ) );
     $link = esc_url( get_permalink( $post_id ) );
     $content = wp_trim_words( get_the_content( $post_id ), 100, '...' );
@@ -63,7 +63,7 @@ function render_pandp_blocks_post_carousel() {
     $markup .= '<a class="entry-title-link" rel="bookmark" href="' . $link . '">' . $title . '</a>';
     $markup .= '</h3>';
     $markup .= '<p class="entry-meta">';
-    $markup .= '<span class="entry-categories"><a href="/category/' . $cat_slug . '" rel="category">' . $cat_name . '</a></span>';
+    $markup .= '<span class="entry-categories"><a class="is-' . $cat_color . '-category-color" href="/category/' . $cat_slug . '" rel="category">' . $cat_name . '</a></span>';
     $markup .= '</p>';
     $markup .= '</header>';
     $markup .= '<div class="entry-content" itemprop="text"><p>' . $content . '</p></div>';
@@ -71,7 +71,7 @@ function render_pandp_blocks_post_carousel() {
 
   }
 
-  $markup .= '</div>';
+  $markup .= '</div></div></div></div>';
 
 	return $markup;
 

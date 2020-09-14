@@ -4,8 +4,35 @@
  * CSS for both Frontend+Backend.
  */
 
- .wp-block-pandp-blocks-clear::before {
-   content: '';
-   clear: both;
-   display: table;
- }
+.wp-block-pandp-blocks-post-carousel {
+
+  .outer-container {
+    position: relative;
+    width: 100%;
+
+    .inner-container {
+      height: 100vh;
+      overflow-x: hidden;
+      position: sticky;
+        top: 0;
+      width: 100%;
+
+      .horizontal-container {
+        display: flex;
+          align-items: center;
+        height: 100%;
+        position: absolute;
+        will-change: transform;
+
+        .post {
+          flex-shrink: 0;
+          width: 30%;
+        }
+
+      }
+
+    }
+
+  }
+
+}
