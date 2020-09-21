@@ -4,6 +4,15 @@
  * CSS for both Frontend+Backend.
  */
 
+// .site-inner {
+//   margin-top: 0 !important;
+//   overflow: visible !important;
+// }
+//
+// .wrap {
+//   max-width: unset !important;
+// }
+
 .wp-block-pandp-blocks-post-carousel {
 
   .outer-container {
@@ -11,7 +20,7 @@
     width: 100%;
 
     .inner-container {
-      height: 100vh;
+      min-height: 90vh;
       overflow-x: hidden;
       position: sticky;
         top: 0;
@@ -27,6 +36,12 @@
         .post {
           flex-shrink: 0;
           width: 30%;
+
+          .entry-title {
+            margin: 0 !important;
+            position: relative;
+          }
+
         }
 
       }

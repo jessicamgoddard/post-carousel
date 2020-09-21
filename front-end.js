@@ -19,4 +19,4 @@ outer.style.height = calcDynamicHeight( horiz ) + 'px';
 // Set dynamic transform as user scrolls
 window.addEventListener( 'scroll', () => {
   horiz.style.transform = 'translateX( ' + -inner.offsetTop + 'px )';
-})
+} );
