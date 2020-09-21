@@ -36,12 +36,12 @@ function render_pandp_blocks_post_carousel() {
     return '<p>No posts</p>';
   }
 
-	$markup = '<div class="wp-block-pandp-blocks-post-carousel"><div class="outer-container"><div class="inner-container"><div class="horizontal-container">';
+	$markup = '<div class="wp-block-pandp-blocks-post-carousel alignfull"><div class="outer-container"><div class="inner-container"><div class="horizontal-container"><div class="post-container">';
 
   foreach( $recent_posts as $post ) {
 
     $post_id = $post['ID'];
-    $image = get_the_post_thumbnail( $post_id, $size = 'medium' );
+    $image = get_the_post_thumbnail( $post_id, $size = 'featured-image' );
     $category = get_the_category( $post_id );
     $cat_slug = $category[0]->slug;
     $cat_name = $category[0]->name;
@@ -55,23 +55,34 @@ function render_pandp_blocks_post_carousel() {
     if( $category ) {
       $classes .= ' category-' . $cat_slug . ' category-color-' . $cat_color;
     }
+		if( $image ) {
+			$classes .= ' has-post-thumbnail';
+		}
 
     $markup .= '<article class="' . $classes . '" aria-label="' . $title . '" itemscope itemtype="https://schema.org/CreativeWork">';
     $markup .= '<header class="entry-header">';
-    $markup .= '<a class="entry-image-link" href="' . $link . '" aria-hidden="true" tabindex="-1">' . $image . '</a>';
+
+		if( $image ) :
+    	$markup .= '<a class="entry-image-link" href="' . $link . '" aria-hidden="true" tabindex="-1">' . $image . '</a>';
+		endif;
+
     $markup .= '<h3 class="entry-title" itemprop="headline">';
     $markup .= '<a class="entry-title-link" rel="bookmark" href="' . $link . '">' . $title . '</a>';
     $markup .= '</h3>';
     $markup .= '<p class="entry-meta">';
-    $markup .= '<span class="entry-categories"><a class="is-' . $cat_color . '-category-color" href="/category/' . $cat_slug . '" rel="category">' . $cat_name . '</a></span>';
-    $markup .= '</p>';
+
+		if( $cat_name ) :
+    	$markup .= '<span class="entry-categories"><a class="has-' . $cat_color . '-category-color" href="/category/' . $cat_slug . '" rel="category">' . $cat_name . '</a></span>';
+		endif;
+
+		$markup .= '</p>';
     $markup .= '</header>';
     $markup .= '<div class="entry-content" itemprop="text"><p>' . $content . '</p></div>';
     $markup .= '</article>';
 
   }
 
-  $markup .= '</div></div></div></div>';
+  $markup .= '</div></div></div></div></div>';
 
 	return $markup;
 

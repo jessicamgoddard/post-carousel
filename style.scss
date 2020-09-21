@@ -4,15 +4,6 @@
  * CSS for both Frontend+Backend.
  */
 
-// .site-inner {
-//   margin-top: 0 !important;
-//   overflow: visible !important;
-// }
-//
-// .wrap {
-//   max-width: unset !important;
-// }
-
 .wp-block-pandp-blocks-post-carousel {
 
   .outer-container {
@@ -20,7 +11,7 @@
     width: 100%;
 
     .inner-container {
-      min-height: 90vh;
+      min-height: 100vh;
       overflow-x: hidden;
       position: sticky;
         top: 0;
@@ -33,13 +24,59 @@
         position: absolute;
         will-change: transform;
 
-        .post {
-          flex-shrink: 0;
-          width: 30%;
+        .post-container {
+          display: flex;
+          padding: 0 15px;
 
-          .entry-title {
-            margin: 0 !important;
-            position: relative;
+          .post {
+            flex-shrink: 0;
+            margin: 30px 30px 30px 0;
+            width: 75vw;
+              max-width: 21.88rem;
+
+            .entry-header {
+              display: flex;
+                flex-direction: column;
+              margin-bottom: 15px;
+
+              .entry-image-link {
+                border-radius: 1.875rem;
+                display: block;
+                order: -2;
+                overflow: hidden;
+              }
+
+              .entry-title {
+                background-color: transparent;
+                bottom: 0;
+                color: #393939;
+                font-size: 1.125rem;
+                left: 0;
+                margin: 0 15px !important;
+                padding: 0;
+                position: relative;
+
+                a {
+                  text-decoration: none;
+                }
+
+              }
+
+              .entry-meta {
+                margin-top: 15px;
+                order: -1;
+              }
+
+            }
+
+            .entry-content {
+              font-size: 1rem;
+            }
+
+            &.has-post-thumbnail .entry-meta {
+              margin-top: -0.9375rem;
+            }
+
           }
 
         }
