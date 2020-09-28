@@ -11,7 +11,7 @@
     width: 100%;
 
     .inner-container {
-      min-height: 100vh;
+      min-height: calc(100vh - 90px);
       overflow-x: hidden;
       position: sticky;
         top: 0;
@@ -42,6 +42,7 @@
               .entry-image-link {
                 border-radius: 1.875rem;
                 display: block;
+                max-height: 14.5rem;
                 order: -2;
                 overflow: hidden;
               }
@@ -85,6 +86,15 @@
 
     }
 
+  }
+
+}
+
+@media only screen and (min-width:156.25em) {
+
+  .wp-block-pandp-blocks-post-carousel .outer-container .inner-container .horizontal-container {
+    justify-content: center;
+    width: 100%;
   }
 
 }
