@@ -90,6 +90,46 @@
 
 }
 
+@media only screen and (max-width:56.25em) {
+
+  .wp-block-pandp-blocks-post-carousel .outer-container {
+		height: auto;
+
+    .inner-container {
+  		min-height: unset;
+  		overflow-x: auto;
+  		position: relative;
+
+      .horizontal-container {
+    		transform: none;
+    		position: relative;
+
+        &,
+      	.post-container{
+      		width: 100%;
+
+          .post-container {
+        		align-items: center;
+        		flex-direction: column;
+
+            .post:nth-child(4),
+            .post:nth-child(5),
+            .post:nth-child(6) {
+              display: none;
+            }
+
+        	}
+
+        }
+
+      }
+
+    }
+
+	}
+
+}
+
 @media only screen and (min-width:156.25em) {
 
   .wp-block-pandp-blocks-post-carousel .outer-container .inner-container .horizontal-container {
